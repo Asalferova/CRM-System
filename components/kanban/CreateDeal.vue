@@ -3,8 +3,8 @@ import { useMutation } from "@tanstack/vue-query";
 import type { ID } from "appwrite";
 import { defineProps } from "vue";
 import type { IDeal } from "@/types/deals.types";
+import { COLLECTION_DEALS, DB_ID } from "~/app.constants";
 
-const config = useRuntimeConfig();
 const isOpenForm = ref<boolean>(false);
 
 interface IDealFormState extends Pick<IDeal, "name" | "price"> {
@@ -34,8 +34,8 @@ const { mutate, isPending, isError } = useMutation({
   mutationKey: ["create a new deal"],
   mutationFn: (data: IDealFormState) =>
     DB.createDocument(
-      config.public.dbId,
-      config.public.collectionDeals,
+      DB_ID,
+      COLLECTION_DEALS,
       ID.unique(),
       data
     ),

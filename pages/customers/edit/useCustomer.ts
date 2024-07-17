@@ -1,11 +1,11 @@
 import { useMutation, useQuery } from "@tanstack/vue-query";
 import type { ICustomer } from "@/types/deals.types";
+import { COLLECTION_CUSTOMERS, DB_ID, STORAGE_ID } from "~/app.constants";
 
 export interface ICustomerFormState
   extends Pick<ICustomer, "avatar_url" | "email" | "name" | "from_source"> {}
 
 export function useCustomer() {
-  const config = useRuntimeConfig();
   const route = useRoute();
   const customerId = route.params.id as string;
   const customerNameRef = ref<string>();
@@ -18,8 +18,8 @@ export function useCustomer() {
     queryKey: ["get customer", customerId],
     queryFn: () =>
       DB.getDocument(
-        config.public.dbId,
-        config.public.collectionCustomers,
+        DB_ID,
+        COLLECTION_CUSTOMERS,
         customerId
       ),
   });
@@ -36,8 +36,8 @@ export function useCustomer() {
     mutationKey: ["update customer", customerId],
     mutationFn: (data: ICustomerFormState) =>
       DB.updateDocument(
-        config.public.dbId,
-        config.public.collectionCustomers,
+        DB_ID,
+        COLLECTION_CUSTOMERS,
         customerId,
         data
       ),
@@ -66,10 +66,10 @@ export function useCustomer() {
   } = useMutation({
     mutationKey: ["upload image"],
     mutationFn: (file: File) =>
-      storage.createFile(config.public.storageId, ID.unique(), file),
+      storage.createFile(STORAGE_ID, ID.unique(), file),
     onSuccess(data) {
       const response = storage.getFileDownload(
-        config.public.storageId,
+        STORAGE_ID,
         data.$id
       );
       customerAvatarUrl.value = response.href;

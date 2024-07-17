@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { useQuery } from "@tanstack/vue-query";
 import type { ICustomer } from "@/types/deals.types";
+import { COLLECTION_CUSTOMERS, DB_ID } from "~/app.constants";
 
 useSeoMeta({
   title: "Customers",
 });
-const config = useRuntimeConfig();
 const {
   data: customers,
   isLoading,
@@ -13,7 +13,7 @@ const {
 } = useQuery({
   queryKey: ["customers"],
   queryFn: () =>
-    DB.listDocuments(config.public.dbId, config.public.collectionCustomers),
+    DB.listDocuments(DB_ID, COLLECTION_CUSTOMERS),
 });
 </script>
 <template>

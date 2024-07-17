@@ -2,12 +2,12 @@
 import dayjs from "dayjs";
 import { useQuery } from "@tanstack/vue-query";
 import { Query } from "appwrite";
+import { COLLECTION_DEALS, DB_ID } from "~/app.constants";
 
 useSeoMeta({
   title: "Report",
 });
 
-const config = useRuntimeConfig();
 const offset: number = 24 * 60 * 60 * 1000 * 30;
 const date: Date = new Date();
 date.setTime(date.getTime() - offset);
@@ -18,9 +18,9 @@ const {
   isLoading,
   isError,
 } = useQuery({
-  queryKey: [config.public.collectionDeals],
+  queryKey: [COLLECTION_DEALS],
   queryFn: () =>
-    DB.listDocuments(config.public.dbId, config.public.collectionDeals, [
+    DB.listDocuments(DB_ID, COLLECTION_DEALS, [
       Query.greaterThanEqual("$createdAt", isoDate),
     ]),
 });

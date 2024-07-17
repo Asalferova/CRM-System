@@ -1,8 +1,8 @@
 import { useMutation } from "@tanstack/vue-query";
+import { COLLECTION_COMMENTS, DB_ID } from "~/app.constants";
 import { useDealSlideStore } from "~/store/deal-slide.store";
 
 export function useCommentMutation({ refetch }: { refetch: () => void }) {
-  const config = useRuntimeConfig();
   const store = useDealSlideStore();
   const commentRef = ref<string>();
 
@@ -10,8 +10,8 @@ export function useCommentMutation({ refetch }: { refetch: () => void }) {
     mutationKey: ["add comment", commentRef.value],
     mutationFn: () =>
       DB.createDocument(
-        config.public.dbId,
-        config.public.collectionComments,
+        DB_ID,
+        COLLECTION_COMMENTS,
         ID.unique(),
         {
           text: commentRef.value,

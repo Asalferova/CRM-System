@@ -6,11 +6,11 @@ import { useMutation } from "@tanstack/vue-query";
 import dayjs from "dayjs";
 import type { EnumStatus } from "@/types/deals.types";
 import { useDealSlideStore } from "@/store/deal-slide.store";
+import { COLLECTION_DEALS, DB_ID } from "~/app.constants";
 useSeoMeta({
   title: "Orders",
 });
 
-const config = useRuntimeConfig();
 const dragCardRef = ref<ICard | null>(null);
 const sourceColumnRef = ref<IColumn | null>(null);
 const { data, isLoading, refetch, isError } = useKanbanQuery();
@@ -31,9 +31,9 @@ const { mutate, isPending } = useMutation({
     operation: "move" | "delete";
   }) => {
     if (operation === "move") {
-      return DB.updateDocument(config.public.dbId, config.public.collectionDeals, docId, { status });
+      return DB.updateDocument(DB_ID, COLLECTION_DEALS, docId, { status });
     } else if (operation === "delete") {
-      return DB.deleteDocument(config.public.dbId, config.public.collectionDeals, docId);
+      return DB.deleteDocument(DB_ID, COLLECTION_DEALS, docId);
     }
   },
   onSuccess(data) {

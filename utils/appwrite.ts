@@ -1,9 +1,10 @@
 import { Account, Client, Databases, Storage, Avatars } from "appwrite";
+import { APP_WRITE_ID } from "~/app.constants";
 export const client = new Client();
 
 client
   .setEndpoint("https://cloud.appwrite.io/v1")
-  .setProject("667949e50013cb665138")
+  .setProject(APP_WRITE_ID)
   .setSession("");
 
 export const account = new Account(client);
