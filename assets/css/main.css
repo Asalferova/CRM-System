@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root,
+  .theme-custom {
+    --text: #000;
+    --background: #fff;
+    --sidebarBackground: rgb(234, 176, 149);
+    --icon: #f57a6a;
+    --border: rgb(209 213 219);
+    --cardLightColor: rgb(255, 255, 255);
+    --cardPastelColor: rgb(250, 235, 228);
+    --cardMediumColor: rgb(244, 215, 202);
+    --cardDarkColor: rgb(239, 195, 175);
+    --cardDeepColor: rgb(234, 176, 149);
+    --fontMini: 14px;
+    --fontMedium: 16px;
+    --fontMax: 18px;
+  }
+  .theme-light {
+    --text: #1f2937;
+    --background: #f9fafb;
+    --sidebarBackground: #e5e7eb;
+    --icon: #3b82f6;
+    --border: #d1d5db;
+    --cardLightColor: #e5e7eb;
+    --cardPastelColor: #d1d5db;
+    --cardMediumColor: #9ca3af;
+    --cardDarkColor: #767b85;
+    --cardDeepColor: #60666d;
+  }
+  .theme-dark {
+    --text: #d1d5db;
+    --background: #1f2937;
+    --sidebarBackground: #111827;
+    --icon: #60a5fa;
+    --border: #4b5563;
+    --cardLightColor: #6b7280;
+    --cardPastelColor: #4b5563;
+    --cardMediumColor: #374151;
+    --cardDarkColor: #222831;
+    --cardDeepColor: #111827;
+  }
+  .theme-green {
+    --text: #064e3b;
+    --background: #f0fdf4;
+    --sidebarBackground: #d1fae5;
+    --icon: #10b981;
+    --border: #a7f3d0;
+    --cardLightColor: #d1fae5;
+    --cardPastelColor: #a7f3d0;
+    --cardMediumColor: #6ee7b7;
+    --cardDarkColor: #34d399;
+    --cardDeepColor: #10b981;
+  }
+  .main {
+    @apply p-10 bg-background m-0 min-h-screen;
+  }
+  body {
+    font-family: "Pangolin", sans-serif;
+    color: var(--text);
+  }
+}
