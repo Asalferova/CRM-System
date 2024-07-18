@@ -39,7 +39,7 @@ const {
           >
             <td>
               <NuxtLink :href="`/customers/edit/${customer.$id}`">
-                <NuxtImg
+                <img
                   :src="customer.avater_url"
                   :alt="customer.name"
                   width="50"
