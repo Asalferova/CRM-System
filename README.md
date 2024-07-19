@@ -1,75 +1,72 @@
-# Nuxt 3 Minimal Starter
+# [CRM-System](https://fabulous-entremet-6183f8.netlify.app/ "Ссылка на сайт")
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Содержание
 
-## Setup
+1. <a href="#description">Описание проекта</a>
+2. <a href="#setup">Настройка проекта</a>
+3. <a href="#stack">Технологии</a>
+4. <a href="#screenshots">Скриншоты сайта</a>
 
-Make sure to install the dependencies:
+   
+<h2 id="description">Описание проекта</h2>
 
-```bash
-# npm
+CRM-Система для сотрудника. 
+
+Основные функции сайта:
+
+  1. Работа с реляционной бд/хранилищем.
+  2. Регистрация/авторизация.
+  3. Добавление/удаление/перетаскивание карточек заказа, добавление комментариев к заказам.
+  4. Редактирование информации о клиентах.
+  5. Автоматические составление отчета в формате PDF.
+  6. Возможность смены темы и размера шрифта.
+
+<h2 id="setup">Настройка проекта</h2>
+
+### Установка
+```
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+### Компилирует и выполняет перезагрузку для разработки
+```
 npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
-
-```bash
-# npm
+### Компилирует и минимизирует для продакшн
+```
 npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+<h2 id="stack">Технологии</h2>
 
-```bash
-# npm
-npm run preview
+   * Nuxt 3
+   * Nuxt Icon/Image/Fonts/PDF
+   * Tailwind
+   * Pinia
+   * Vue Query
+   * Vuelidate
+   * Appwrite
 
-# pnpm
-pnpm run preview
+<h2 id="screenshots">Скриншоты сайта</h2>
 
-# yarn
-yarn preview
+1. Скриншот вкладки c заказами
+ 
+![Скриншот страницы c заказами](./screenshots/mainDesktop.png)
 
-# bun
-bun run preview
-```
+2. Скриншот вкладки клиенты
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+![Скриншот вкладки клиенты](./screenshots/customersDesktop.png)
+
+3. Скриншот вкладки отчёт
+
+![Скриншот вкладки отчёт](./screenshots/reportDesktop.png)
+
+4. Скриншот вкладки настроек
+
+![Скриншот вкладки настроек](./screenshots/settingsDesktop.png)
+
+5. Скриншот вкладки помощь
+ 
+![Скриншот вкладки помощь](./screenshots/helpDesktop.png)
+
