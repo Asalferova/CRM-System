@@ -41,6 +41,7 @@ npm run build
 <h2 id="stack">Технологии</h2>
 
    * Nuxt 3
+   * Typescript
    * Nuxt Icon/Image/Fonts/PDF
    * Tailwind
    * Pinia
